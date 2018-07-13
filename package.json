@@ -1,0 +1,47 @@
+{
+  "name": "nuxt",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "thinkive@qq.com <thinkive@qq.com>",
+  "private": true,
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "8080"
+    }
+  },
+  "scripts": {
+    "dev": "nuxt --BASE_URL http://127.0.0.1:8080 --HOST localhost --PORT 80",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "debounce": "^1.1.0",
+    "howler": "^2.0.13",
+    "node-sass": "^4.9.1",
+    "nuxt": "^1.0.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-plugin-vue": "^4.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-html": "^2.0.3",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0"
+  }
+}
