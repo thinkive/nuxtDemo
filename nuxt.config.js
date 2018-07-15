@@ -12,16 +12,17 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: 'nuxtDemo',
     titleTemplate: '%s | Awesome JS SSR Blog',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'renderer', content: 'webkit' },
       { hid: 'description', name: 'description', content: 'Nuxt.js project' },
       { 'http-equiv': 'pragma', content: 'no-cache' },
       { 'http-equiv': 'cache-control', content: 'no-cache' },
       { 'http-equiv': 'expires', content: '0' },
-      { hid: 'keywords', name: 'keywords', content: '前端开发，JavaScript, Node, Vue，nuxt' },
+      { hid: 'keywords', name: 'keywords', content: '前端开发，JavaScript, Node, Vue，nuxt, 服务端渲染' },
       { name: 'author', content: 'thinkive@qq.com' },
       { content: 'telephone=no', name: 'format-detection' }
     ],
@@ -73,8 +74,8 @@ module.exports = {
     /*
     ** Run ESLINT on save
     */
-    extend (config, ctx) {
-      if (ctx.isDev && ctx.isClient) {
+    extend (config, { isDev, isClient }) {
+      if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -97,6 +98,11 @@ module.exports = {
         config.devtool = 'eval-source-map'
       }
     },
+  },
+  manifest: {
+    name: 'nuxtDemo',
+    description: 'A nuxtDemo system',
+    theme_color: '#42B983'
   },
   modules: [
     '@nuxtjs/axios',
