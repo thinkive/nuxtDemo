@@ -22,9 +22,9 @@ export const state = () => ({
 
 export const mutations = {
   increment (state) {
-    state.num ++
+    state.num++
   },
   decrement (state) {
-    state.num --
+    state.num--
   }
 }

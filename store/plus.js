@@ -4,11 +4,11 @@ export const state = () => ({
 
 export const mutations = {
   plusMutations (state) {
-    state.plusNum ++
+    state.plusNum++
   },
   plusIndex (state) {
     console.log(state)
-    state.num ++
+    state.num++
     console.log('点击递增index的num')
   }
 }

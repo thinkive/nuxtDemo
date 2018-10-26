@@ -1,7 +1,4 @@
-/*
-** 只在生成模式的客户端中使用
-*/
-if (process.BROWSER_BUILD && process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   /*
   ** Google 统计分析脚本
   */
@@ -16,6 +13,7 @@ if (process.BROWSER_BUILD && process.env.NODE_ENV === 'production') {
 }
 
 export default ({ app: { router }, store }) => {
+  console.log(process.env.NODE_ENV)
   /*
   ** 每次路由变更时进行pv统计
   */
@@ -23,7 +21,7 @@ export default ({ app: { router }, store }) => {
     /*
     ** 告诉 GA 增加一个 PV
     */
-    ga('set', 'page', to.fullPath)
-    ga('send', 'pageview')
+    window.ga && ga('set', 'page', to.fullPath)
+    window.ga && ga('send', 'pageview')
   })
 }

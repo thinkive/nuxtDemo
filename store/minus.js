@@ -4,6 +4,6 @@ export const state = () => ({
 
 export const mutations = {
   minusMutations (state) {
-    state.minusNum --
+    state.minusNum--
   }
 }

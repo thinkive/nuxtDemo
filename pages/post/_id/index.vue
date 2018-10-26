@@ -11,31 +11,32 @@
 </template>
 
 <script>
-  // import posts saved JSON data
-  import posts from '~/data/posts.json'
-  export default {
-    validate ({ params }) {
-      return /^\d+$/.test(params.id)
-    },
-    asyncData ({ params }, callback) {
-      let post = posts.find(post => post.id === parseInt(params.id))
-      if (post) {
-        callback(null, { post })
-      } else {
-        callback({ statusCode: 404, message: 'Post not found' })
-      }
-    },
-    head () {
-      return {
-        title: this.post.title,
-        meta: [
-          {
-            hid: 'description',
-            name: 'description',
-            content: this.post.summary
-          }
-        ]
-      }
+// import posts saved JSON data
+import posts from '~/data/posts.json'
+export default {
+  validate ({ params }) {
+    return /^\d+$/.test(params.id)
+  },
+  asyncData ({ params }, callback) {
+    let post = posts.find(post => post.id === parseInt(params.id))
+    if (post) {
+      callback(null, { post })
+    } else {
+      let result = { statusCode: 404, message: 'Post not found' }
+      callback(result)
+    }
+  },
+  head () {
+    return {
+      title: this.post.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.summary
+        }
+      ]
     }
   }
+}
 </script>

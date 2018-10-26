@@ -43,48 +43,52 @@
 </template>
 
 <script>
-  import Posts from '~/components/Posts.vue'
-  export default {
-    name: 'index',
-    scrollToTop: true,
-    transition: 'fade',
-    components: {
-      Posts
-    },
-    data: function () {
-      return {
-        count: 0
-      }
-    },
-    head: {
-      title: 'Home'
-    },
-    async asyncData (context) {
-      console.log('~~~~~~~~asyncData~~~~~~~~~~~~~')
-      const ip = await context.app.$axios.$get('http://icanhazip.com')
-      console.log(ip)
-      return { project: 'nuxt' }
-    },
-    async fetch ({app}) {
-      console.log('~~~~~~~~~~~fetch~~~~~~~~~~~~~~~~')
-      const ip = await app.$axios.$get('http://icanhazip.com')
-      console.log(ip)
-    },
-    computed: {
-      signle () {
-        return true
-      }
-    },
-    methods: {
-      async fetchSomething() {
-        console.log('~~~~~~fetchSomething~~~~~~~~~~~~~~~')
-        const ip = await this.$axios.$get('/test')
-        console.log(ip)
-      }
-    },
-    mounted () {
-      console.log('~~~~~~~~~~~~mounted~~~~~~~~~~~~~~')
-      this.fetchSomething()
+import Posts from '~/components/Posts.vue'
+import store from 'store'
+
+export default {
+  name: 'index',
+  scrollToTop: true,
+  transition: 'fade',
+  components: {
+    Posts
+  },
+  data: function () {
+    return {
+      count: 0
     }
+  },
+  head: {
+    title: 'Home'
+  },
+  async asyncData (context) {
+    console.log('~~~~~~~~asyncData~~~~~~~~~~~~~')
+    const ip = await context.app.$axios.$get('http://icanhazip.com')
+    console.log(ip)
+    return { project: 'nuxt' }
+  },
+  async fetch ({app}) {
+    console.log('~~~~~~~~~~~fetch~~~~~~~~~~~~~~~~')
+    const ip = await app.$axios.$get('http://icanhazip.com')
+    console.log(ip)
+  },
+  computed: {
+    signle () {
+      return true
+    }
+  },
+  methods: {
+    async fetchSomething() {
+      console.log('~~~~~~fetchSomething~~~~~~~~~~~~~~~')
+      const ip = await this.$axios.$get('/test')
+      console.log(ip)
+    }
+  },
+  mounted () {
+    console.log('~~~~~~~~~~~~mounted~~~~~~~~~~~~~~')
+    this.fetchSomething()
+    store.set('user', { name: 'Marcus' })
+    console.log(store.get('user').name)
   }
+}
 </script>
