@@ -37,11 +37,11 @@
 </template>
 
 <script>
-  import posts from '~/data/posts.json'
-  export default {
-    name: 'posts',
-    data () {
-      return { posts }
-    }
+import posts from '~/data/posts.json'
+export default {
+  name: 'posts',
+  data () {
+    return { posts }
   }
+}
 </script>

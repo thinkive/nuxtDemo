@@ -17,9 +17,9 @@
 </template>
 
 <script>
-  export default {
-    head: {
-      title: 'About'
-    }
+export default {
+  head: {
+    title: 'About'
   }
+}
 </script>
