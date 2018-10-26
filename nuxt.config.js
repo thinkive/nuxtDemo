@@ -2,6 +2,7 @@
 const path = require('path')
 var minimist = require('minimist');
 module.exports = {
+  mode: 'spa',
   // cache: true,
   cache: {
     max: 1000,
@@ -108,24 +109,24 @@ module.exports = {
     '@nuxtjs/axios',
     // '@nuxtjs/auth'
   ],
-  axios: { // Can be customized with API_PREFIX, API_HOST (or HOST) and API_PORT (or PORT) environment variables.
+  axios: {
     https: false,
-    progress: true,// this.$axios.$get('URL', { progress: false })
-    prefix: '/api/', // Default value of prefix is /.
-    // baseURL: '', // Default: http://[HOST]:[PORT][PREFIX] //Environment variable API_URL can be used to override baseURL.
-    // proxy: false, // default
+    progress: true,
+    prefix: '/api/',
+    // baseURL: '', //
+    // proxy: false, //
     retry: {
-      retries: 3, // 	The number of times to retry before failing.
-      shouldResetTimeout: false, // Defines if the timeout should be reset between retries
+      retries: 3, //
+      shouldResetTimeout: false,
       retryDelay: function () {
         return  10 * 1000
       },
-      retryCondition: function () { //A callback to further control if a request should be retried. By default, it retries if it is a network error or a 5xx error on an idempotent request (GET, HEAD, OPTIONS, PUT or DELETE)
+      retryCondition: function () {
         return  10 * 1000
       },
     },
-    credentials: true, // Default: false
-    debug: true, // Default: false Adds interceptors to log request and responses.
+    credentials: true,
+    debug: true,
     // proxy: {
     //   '/api/': 'http://api.example.com',
     //   '/api2/': 'http://api.another-website.com',
