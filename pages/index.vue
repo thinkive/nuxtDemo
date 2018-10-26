@@ -78,7 +78,7 @@ export default {
     }
   },
   methods: {
-    async fetchSomething() {
+    async fetchSomething () {
       console.log('~~~~~~fetchSomething~~~~~~~~~~~~~~~')
       const ip = await this.$axios.$get('/test')
       console.log(ip)
