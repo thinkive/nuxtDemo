@@ -25,7 +25,8 @@
     "howler": "^2.0.13",
     "node-sass": "^4.9.1",
     "nuxt": "^1.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "store": "^2.0.12"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

@@ -135,7 +135,7 @@ module.exports = {
   },
   generate: {
     routes (callback) {
-      const posts = require('./posts.json')
+      const posts = require('./data/posts.json')
       let routes = posts.map(post => `post/${post.id}`)
       callback(null, routes)
     },
