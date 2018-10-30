@@ -62,10 +62,11 @@ module.exports = {
   /*
   ** Build configuration
   */
-  build: {
+  build: { // 库文件设置的地方，放在这里，单独打包文件，用于缓存，如果通过插件引用，会和应用程序打包在一起，不利于文件缓存
     vendor: [
       'axios',
       'howler',
+      '~/plugins/vue-notifications'
     ],
     babel: {
       presets: ['es2015', 'stage-2'],
@@ -92,6 +93,23 @@ module.exports = {
             { loader: 'css-loader', options: { importLoaders: 1 } },
             'less-loader'
           ]
+        },
+          // 下面2个是默认的配置（可以删除）
+        {
+          test: /\.(png|jpe?g|gif|svg)$/,
+          loader: 'url-loader',
+          query: {
+            limit: 1000, // 1KB
+            name: 'img/[name].[hash:7].[ext]'
+          }
+        },
+        {
+          test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+          loader: 'url-loader',
+          query: {
+            limit: 1000, // 1 KB
+            name: 'fonts/[name].[hash:7].[ext]'
+          }
         }
         )
         // 添加 alias 配置
@@ -153,6 +171,7 @@ module.exports = {
     { src: '~/plugins/axios'},
     { src: '~/plugins/baidu-seo-push.js', ssr: false },
     { src: '~/plugins/finally.js', ssr: false },
-    { src: '~/plugins/debug.js', ssr: false }
+    { src: '~/plugins/debug.js', ssr: false },
+    { src: '~plugins/vue-notifications' }
   ]
 }

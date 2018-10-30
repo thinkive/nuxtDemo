@@ -26,7 +26,8 @@
     "node-sass": "^4.9.1",
     "nuxt": "^1.0.0",
     "path": "^0.12.7",
-    "store": "^2.0.12"
+    "store": "^2.0.12",
+    "vue-notifications": "^0.9.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
