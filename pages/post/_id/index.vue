@@ -17,7 +17,11 @@ export default {
   validate ({ params }) {
     return /^\d+$/.test(params.id)
   },
+  async fetch ({app}) {
+    console.log('~~~~~~~post _id~~~~fetch~~~~~~~~~~~~~~~~')
+  },
   asyncData ({ params }, callback) {
+    console.log('~~~~~~~post _id~~~~~asyncData~~~')
     let post = posts.find(post => post.id === parseInt(params.id))
     if (post) {
       callback(null, { post })

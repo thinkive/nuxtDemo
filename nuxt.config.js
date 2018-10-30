@@ -42,6 +42,8 @@ module.exports = {
       //   src: '//jkchao.disqus.com/count.js',
       //   id: 'dsq-count-scr'
       // }
+      {src: 'https://hm.baidu.com/hm.js?****'}
+
     ],
     // 不对<script>标签中内容做转义处理
     __dangerouslyDisableSanitizers: ['script']
